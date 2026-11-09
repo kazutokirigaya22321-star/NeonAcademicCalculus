@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CALCULUS // NEON ACADEMY</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+
+*{box-sizing:border-box}body{margin:0;background:#050816;color:#eef7ff;font-family:Inter,Arial,sans-serif;min-height:100vh;overflow-x:hidden}
+body:before{content:"";position:fixed;top:0;right:0;bottom:0;left:0;z-index:-3;background:radial-gradient(ellipse at 18% 20%,#14265b 0,transparent 42%),radial-gradient(ellipse at 82% 16%,#38134d 0,transparent 36%),radial-gradient(ellipse at 50% 100%,#073d54 0,transparent 40%),#050816}
+body:after{content:"";position:fixed;top:0;right:0;bottom:0;left:0;z-index:-2;opacity:.23;background-image:linear-gradient(rgba(87,211,255,.12) 1px,transparent 1px),linear-gradient(90deg,rgba(87,211,255,.12) 1px,transparent 1px);background-size:48px 48px;mask-image:linear-gradient(to bottom,black,transparent 90%)}
+.stars{position:fixed;top:0;right:0;bottom:0;left:0;pointer-events:none;z-index:-1;background-image:radial-gradient(2px 2px at 15% 25%,#fff,transparent),radial-gradient(1px 1px at 70% 35%,#8dfaff,transparent),radial-gradient(2px 2px at 88% 70%,#fff,transparent),radial-gradient(1px 1px at 42% 80%,#ff80e8,transparent);background-size:260px 240px;animation:drift 22s linear infinite}
+@keyframes drift{to{background-position:260px 240px}}
+*{scrollbar-color:#37527b #081026}
+button{font:inherit;cursor:pointer;border:0;color:inherit}
+.topbar{height:74px;padding:0 clamp(16px,4vw,58px);display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(117,210,255,.24);background:rgba(4,8,22,.72);backdrop-filter:blur(16px);position:sticky;top:0;z-index:20}
+.brand{font:800 17px Orbitron;letter-spacing:2px}.brand b{color:#5cf6ff;text-shadow:0 0 18px #35eaff}.brand small{display:block;font:600 9px Inter;letter-spacing:4px;color:#91a8cb;margin-top:4px}
+.top-actions{display:flex;gap:10px;align-items:center}.chip{border:1px solid rgba(117,210,255,.24);background:#0b1530;padding:9px 13px;border-radius:999px;color:#b9d9f8;font-size:12px}
+.iconbtn{width:40px;height:40px;border-radius:12px;border:1px solid rgba(117,210,255,.24);background:#101b39;font-size:17px}
+main{max-width:1600px;margin:auto;padding:30px clamp(18px,3vw,52px) 70px}
+.hero{display:grid;grid-template-columns:1.12fr .88fr;gap:24px;align-items:center;min-height:340px}
+.eyebrow{font:700 10px Orbitron;letter-spacing:3px;color:#5cf6ff;margin-bottom:16px}
+h1{font:900 clamp(32px,5vw,62px)/1.06 Orbitron;margin:0 0 18px;letter-spacing:-2px}h1 span{color:#5cf6ff;text-shadow:0 0 25px #27d8ff}
+.lead{max-width:570px;color:#b2c3df;line-height:1.7;font-size:15px}
+.hero-buttons{display:flex;gap:12px;flex-wrap:wrap;margin-top:25px}
+.primary{background:linear-gradient(100deg,#16cde8,#6b7bff 55%,#c54bff);padding:14px 22px;border-radius:12px;font:800 11px Orbitron;letter-spacing:1px;color:#071023;box-shadow:0 8px 30px #318dff55;transition:.2s}
+.primary:hover{transform:translateY(-3px);box-shadow:0 12px 34px #318dff88}
+.secondary{padding:13px 18px;border:1px solid #5a7da9;background:#101b36;border-radius:12px;font:700 11px Orbitron;letter-spacing:1px}
+.hero-art{height:300px;position:relative;display:grid;place-items:center;perspective:700px}
+.portal{width:260px;height:260px;border-radius:50%;border:2px solid #54eaff88;box-shadow:0 0 35px #23dfff55,inset 0 0 40px #9a4bff44;position:absolute;transform:rotateX(64deg) rotateZ(-18deg);animation:spin 18s linear infinite}
+.portal:before,.portal:after{content:"";position:absolute;top:17px;right:17px;bottom:17px;left:17px;border:1px dashed #f45de8;border-radius:50%}.portal:after{top:36px;right:36px;bottom:36px;left:36px;border-color:#7b8cff}
+@keyframes spin{to{transform:rotateX(64deg) rotateZ(342deg)}}
+.hero-orb{width:160px;height:160px;border-radius:50%;background:radial-gradient(circle at 32% 28%,#eaffff,#4deeff 14%,#435dff 44%,#6d1e99 75%,#090d29);box-shadow:0 0 70px #36dfffaa,0 0 130px #8e45ff55;position:relative;animation:float 4s ease-in-out infinite}
+.hero-orb:after{content:"Δ";position:absolute;top:0;right:0;bottom:0;left:0;display:grid;place-items:center;font:900 92px Georgia;color:#fff;text-shadow:0 0 18px #fff}
+@keyframes float{50%{transform:translateY(-13px) scale(1.04)}}
+.orbit-label{position:absolute;font:700 10px Orbitron;letter-spacing:1px;color:#d7faff;text-shadow:0 0 12px #5cf6ff}.ol1{top:27px;right:13%}.ol2{bottom:25px;left:8%}
+.section-head{display:flex;justify-content:space-between;align-items:end;margin:34px 0 16px;gap:10px}.section-head h2{font:800 18px Orbitron;letter-spacing:1px;margin:0}.section-head p{margin:6px 0 0;color:#9eb1ce;font-size:12px}
+.levels{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.level-card{position:relative;overflow:hidden;text-align:left;padding:22px;border-radius:18px;min-height:205px;border:1px solid rgba(117,210,255,.24);background:linear-gradient(145deg,rgba(18,32,68,.95),rgba(8,13,32,.93));transition:.25s}
+.level-card:hover{transform:translateY(-6px);border-color:#5cf6ff;box-shadow:0 15px 40px #00d9ff22}
+.level-card:after{content:"";position:absolute;width:150px;height:150px;border-radius:50%;right:-50px;top:-65px;background:#5ccaff;filter:blur(5px);opacity:.2}.level-card.easy:after{background:#44ffc0}.level-card.normal:after{background:#5ccaff}.level-card.hard:after{background:#ff54c7}
+.level-card.easy{--glow:#44ffc0}.level-card.normal{--glow:#5ccaff}.level-card.hard{--glow:#ff54c7}
+.level-top{display:flex;justify-content:space-between;align-items:center}.level-tag{font:800 10px Orbitron;letter-spacing:2px;color:#66dfff}.easy .level-tag{color:#53ffc3}.normal .level-tag{color:#66dfff}.hard .level-tag{color:#ff70d8}.level-icon{font-size:27px}
+.level-card h3{font:800 21px Orbitron;margin:23px 0 8px}.level-card p{font-size:12px;color:#a9bad6;line-height:1.6;max-width:270px}
+.level-foot{position:absolute;bottom:18px;left:22px;right:22px;display:flex;justify-content:space-between;color:#7e9bbc;font-size:10px;letter-spacing:1px}
+.easy{--accent:#53ffc3}.normal{--accent:#66dfff}.hard{--accent:#ff70d8}
+.content-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:22px}
+.info-card{border:1px solid rgba(117,210,255,.24);background:rgba(12,20,48,.82);border-radius:17px;padding:20px}
+.info-card h3{font:700 12px Orbitron;letter-spacing:1.5px;margin:0 0 14px;color:#dffaff}
+.topic-list{display:flex;gap:8px;flex-wrap:wrap}.topic{padding:8px 11px;background:#111f40;border:1px solid #293e65;border-radius:9px;color:#bdd5ef;font-size:11px}
+.stats{display:flex;gap:22px}.stat strong{display:block;font:800 24px Orbitron;color:#5cf6ff}.stat span{font-size:10px;color:#8ea4c4;letter-spacing:1px}
+.screen{display:none}.screen.active{display:block}
+.game-head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:18px}.back{background:#101b36;border:1px solid rgba(117,210,255,.24);padding:10px 13px;border-radius:10px;font-size:12px}
+.progress-wrap{height:7px;background:#172443;border-radius:99px;overflow:hidden;margin:12px 0 22px}.progress{height:100%;width:0;background:linear-gradient(90deg,#5cf6ff,#ff4fd8);box-shadow:0 0 14px #5cf6ff;transition:.3s}
+.game-layout{display:grid;grid-template-columns:minmax(280px,330px) minmax(0,1fr);gap:22px;align-items:start}.question-card{min-width:0}.answers{grid-template-columns:repeat(2,minmax(0,1fr))}
+.teacher-card,.question-card{border:1px solid rgba(117,210,255,.24);background:linear-gradient(145deg,rgba(13,24,52,.96),rgba(7,12,29,.96));border-radius:18px;padding:19px}
+.teacher-card{position:sticky;top:94px;overflow:hidden}.teacher-card:before{content:"";position:absolute;width:180px;height:180px;top:-80px;left:50px;background:#29dfff22;filter:blur(35px);border-radius:50%}
+.teacher-head{display:flex;justify-content:space-between;font:700 10px Orbitron;letter-spacing:1px;color:#5cf6ff}
+.teacher-stage{height:210px;display:grid;place-items:center;position:relative}
+.teacher{width:120px;height:168px;position:relative;animation:bob 3s ease-in-out infinite;filter:drop-shadow(0 0 16px #43dfff66) drop-shadow(0 0 28px #9b7bff55);z-index:1}.teacher-stage:before{content:"";position:absolute;width:190px;height:42px;bottom:12px;border:1px solid #54eaff88;border-radius:50%;box-shadow:0 0 18px #29dfff66,inset 0 0 18px #29dfff33;transform:rotateX(65deg);animation:stagePulse 3s ease-in-out infinite}.teacher-stage:after{content:"PROF. ALEX // AI INSTRUCTOR";position:absolute;top:9px;font:700 8px Orbitron;letter-spacing:2px;color:#82efff;text-shadow:0 0 12px #27dfff;opacity:.8}@keyframes stagePulse{50%{transform:rotateX(65deg) scale(1.12);opacity:.55}}
+@keyframes bob{50%{transform:translateY(-5px)}}
+.teacher .hair{position:absolute;top:0;left:31px;width:60px;height:47px;border-radius:50% 50% 30% 30%;background:linear-gradient(135deg,#263b70,#070c1d);z-index:2;box-shadow:0 0 12px #4ceaff55}.teacher .hair:before{content:"";position:absolute;left:-8px;top:7px;width:27px;height:30px;background:linear-gradient(135deg,#344f91,#10172f);clip-path:polygon(100% 0,80% 100%,0 65%,25% 15%)}.teacher .hair:after{content:"";position:absolute;right:-8px;top:7px;width:27px;height:30px;background:linear-gradient(135deg,#344f91,#10172f);clip-path:polygon(0 0,75% 15%,100% 65%,20% 100%)}
+.teacher .face{position:absolute;top:16px;left:35px;width:52px;height:57px;border-radius:42% 42% 46% 46%;background:linear-gradient(135deg,#f6c9b5,#bd7f8f);z-index:1}
+.teacher .face:before{content:"";position:absolute;left:9px;top:25px;width:13px;height:9px;border:2px solid #26385f;border-radius:4px;box-shadow:20px 0 0 -2px #bd7f8f,20px 0 0 0 #26385f}.teacher .face{box-shadow:inset 0 -7px 12px #9e5e7b33}
+.teacher .face:after{content:"";position:absolute;left:20px;top:39px;width:12px;height:5px;border-bottom:2px solid #a94d70;border-radius:50%}
+.teacher .coat{position:absolute;top:67px;left:18px;width:84px;height:92px;background:linear-gradient(110deg,#eaf7ff,#8eb5d9 48%,#344d86);clip-path:polygon(25% 0,75% 0,100% 100%,0 100%);border-radius:14px}
+.teacher .tie{position:absolute;top:72px;left:57px;width:10px;height:50px;background:#20d7ec;clip-path:polygon(50% 0,100% 20%,65% 100%,35% 100%,0 20%)}
+.teacher .arm{position:absolute;top:82px;left:78px;width:48px;height:12px;border-radius:20px;background:#d6a4a0;transform:rotate(-24deg);transform-origin:left;z-index:4;animation:point 2.5s ease-in-out infinite}
+.teacher .ruler{position:absolute;top:67px;left:112px;width:6px;height:125px;background:repeating-linear-gradient(to bottom,#fff 0 8px,#f4c84c 8px 10px);border:1px solid #f9e7a5;transform:rotate(17deg);transform-origin:top;z-index:5;box-shadow:0 0 10px #ffdb6b;animation:point 2.5s ease-in-out infinite}
+@keyframes point{0%,100%{transform:rotate(-24deg)}50%{transform:rotate(-42deg)}}
+.teacher-name{font:800 13px Orbitron;text-align:center}.teacher-role{text-align:center;color:#91a9c9;font-size:10px;margin-top:4px}
+.teacher-speech{margin-top:15px;padding:13px;border-radius:12px;background:#101e3c;border:1px solid #2b456c;color:#c4d7ef;font-size:12px;line-height:1.6;min-height:90px}
+.speak{width:100%;margin-top:10px;padding:10px;border-radius:9px;background:#142c4d;color:#9deeff;border:1px solid #2b6682;font-size:11px;font-weight:700}
+.question-top{display:flex;justify-content:space-between;align-items:center;color:#8da6c8;font:700 10px Orbitron;letter-spacing:1px}.q-number{color:#5cf6ff}
+.question-card h2{font:700 clamp(19px,2.5vw,27px)/1.35 Inter;margin:23px 0 15px}
+.math-frac{display:inline-flex;flex-direction:column;vertical-align:middle;text-align:center;line-height:1.05;margin:0 .12em;font-size:.82em}.math-frac .num{padding:0 .18em .10em;border-bottom:1px solid currentColor}.math-frac .den{padding:.10em .18em 0}.math-sup{font-size:.68em;vertical-align:super;line-height:0}.formula{background:#071126;border:1px solid #27456d;border-radius:12px;padding:17px;text-align:center;font:600 25px Georgia;color:#e3faff;letter-spacing:1px;margin:16px 0;box-shadow:inset 0 0 25px #25caff0c}
+.answers{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:20px}
+.answer{padding:15px;text-align:left;border-radius:11px;border:1px solid #30476b;background:#101d3b;color:#d9e9ff;font-size:13px;transition:.18s}
+.answer:hover:not(:disabled){border-color:#5cf6ff;background:#142d4e;transform:translateY(-2px)}
+.answer .letter{display:inline-grid;place-items:center;width:25px;height:25px;border-radius:7px;background:#1b3154;color:#5cf6ff;font-weight:800;margin-right:9px}
+.answer.correct{border-color:#41efaa;background:#0d3b37}.answer.wrong{border-color:#ff648e;background:#401b36}.answer:disabled{cursor:default}
+.explain{display:none;margin-top:17px;padding:16px;border-radius:13px;border:1px solid #3c6b89;background:linear-gradient(135deg,#102849,#151b3d)}.explain.show{display:block;animation:fade .3s}.explain h3{font:800 12px Orbitron;color:#5cf6ff;margin:0 0 10px}.explain p{font-size:13px;line-height:1.7;color:#d0def1;margin:7px 0}.explain .step{color:#83f4ff;font-weight:700}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.nextrow{display:flex;justify-content:flex-end;margin-top:15px}.nextrow button:disabled{opacity:.35;cursor:not-allowed}
+.lesson-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.lesson{padding:18px;border:1px solid rgba(117,210,255,.24);border-radius:14px;background:#0d1934;text-align:left}.lesson:hover{border-color:#5cf6ff}.lesson b{font:700 12px Orbitron;color:#5cf6ff}.lesson p{font-size:12px;line-height:1.6;color:#aebfd8}
+.lesson-detail{margin-top:15px;padding:20px;border:1px solid #3c6689;border-radius:15px;background:#0c1c39;display:none}.lesson-detail.show{display:block}.lesson-detail h3{font:800 18px Orbitron}.lesson-detail p{line-height:1.8;color:#c4d7ee;font-size:13px}.lesson-formula{font:700 25px Georgia;color:#ffd66b;padding:15px;text-align:center;background:#081127;border-radius:10px}
+.result{text-align:center;padding:45px 20px;border:1px solid rgba(117,210,255,.24);border-radius:20px;background:rgba(12,20,48,.82)}.result .trophy{font-size:60px}.result h2{font:900 30px Orbitron;color:#5cf6ff}.result p{color:#aebfd8}
+.modal{position:fixed;top:0;right:0;bottom:0;left:0;background:#020612d9;backdrop-filter:blur(10px);z-index:50;display:none;place-items:center;padding:18px}.modal.show{display:grid}.modal-box{max-width:520px;width:100%;padding:25px;border:1px solid #4a83a7;border-radius:18px;background:linear-gradient(145deg,#14274b,#090f25);box-shadow:0 20px 80px #000}.modal-box h2{font:800 19px Orbitron;color:#5cf6ff}.modal-box p{font-size:13px;line-height:1.7;color:#c5d8ef}
+footer{text-align:center;color:#637c9e;font-size:10px;margin-top:38px;letter-spacing:1px}
+@media(max-width:760px){.hero{grid-template-columns:1fr}.hero-art{height:230px}.hero-orb{width:125px;height:125px}.portal{width:210px;height:210px}.game-layout{grid-template-columns:1fr}.teacher-card{position:relative;top:0}.teacher-stage{height:165px}.teacher{transform:scale(.8)}.teacher-card{padding:14px}.teacher-speech{min-height:60px}}
+@media(max-width:600px){.topbar{height:62px}.brand{font-size:13px}.chip{display:none}main{padding-top:22px}.levels{grid-template-columns:1fr}.level-card{min-height:175px}.content-grid{grid-template-columns:1fr}.answers{grid-template-columns:1fr}.lesson-grid{grid-template-columns:1fr}.hero{min-height:auto}.hero-art{height:190px}.section-head{align-items:start;flex-direction:column}.teacher-stage{height:145px}}
+
+.account-actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.account-btn{padding:10px 13px;border:1px solid #5a7da9;background:#101b36;border-radius:10px;font:700 10px Orbitron;letter-spacing:.7px}
+.account-panel{max-width:760px;margin:35px auto;border:1px solid rgba(117,210,255,.24);background:linear-gradient(145deg,rgba(18,32,68,.96),rgba(8,13,32,.96));border-radius:20px;padding:clamp(20px,4vw,34px);box-shadow:0 20px 70px #0008}
+.account-panel h2{font:800 24px Orbitron;margin:0 0 10px}
+.account-panel p{color:#aebfd8;line-height:1.6;font-size:13px}
+.account-field{width:100%;padding:13px 14px;margin:7px 0 14px;border:1px solid #355078;border-radius:10px;background:#081329;color:#eef7ff;outline:none}
+.account-field:focus{border-color:#5cf6ff;box-shadow:0 0 0 3px #5cf6ff22}
+.account-label{display:block;font:700 10px Orbitron;letter-spacing:1px;color:#9edff5;margin-top:10px}
+.account-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+.leader-table{width:100%;border-collapse:collapse;margin-top:20px;font-size:13px}
+.leader-table th,.leader-table td{padding:13px 10px;text-align:left;border-bottom:1px solid #29405f}
+.leader-table th{font:700 10px Orbitron;color:#5cf6ff;letter-spacing:1px}
+.leader-table tr.me{background:#22dfff12}
+.account-note{font-size:11px!important;color:#829ab9!important;margin-top:16px}
+@media(max-width:650px){.topbar{height:auto;min-height:74px;padding-top:12px;padding-bottom:12px;gap:10px;flex-wrap:wrap}.brand{font-size:13px}.account-actions{width:100%;justify-content:flex-end}.leader-table th,.leader-table td{padding:10px 6px;font-size:11px}}
+
+</style>
+</head>
+<body>
+<div class="stars"></div>
+<header class="topbar">
+  <div class="brand">CALCULUS <b>//</b> NEON ACADEMY<small>THE FUTURE OF LEARNING</small></div>
+  <div class="top-actions"><span class="chip" id="xpChip">✦ 0 XP</span><div class="account-actions"><button class="account-btn" id="accountBtn" onclick="openAccount()">FREE LOGIN</button><button class="account-btn" onclick="openLeaderboard()">🏆 LEADERBOARD</button></div><button class="iconbtn" id="musicBtn" title="Toggle music">♫</button><button class="iconbtn" id="soundBtn" title="Toggle voice">🔊</button></div>
+</header>
+<main>
+<section class="screen active" id="home">
+  <div class="hero">
+    <div><div class="eyebrow">✦ MATH QUEST / SEASON 01</div><h1>MASTER THE<br><span>INFINITE.</span></h1>
+      <p class="lead">Enter a futuristic calculus academy. Choose your difficulty, learn with Professor Alex, and solve your way through limits, continuity, derivatives, and applications.</p>
+      <div class="hero-buttons"><button class="primary" onclick="startLevel('easy')">▶ START YOUR QUEST</button><button class="secondary" onclick="showScreen('tutorial')">✧ ENTER TUTORIAL</button></div>
+    </div>
+    <div class="hero-art"><div class="portal"></div><div class="hero-orb"></div><span class="orbit-label ol1">LIMITS // ∞</span><span class="orbit-label ol2">DERIVATIVES // dy/dx</span></div>
+  </div>
+  <div class="section-head"><div><h2>CHOOSE YOUR LEVEL</h2><p>Three ranks. One mission: understand calculus.</p></div></div>
+  <div class="levels">
+    <button class="level-card easy" onclick="startLevel('easy')"><div class="level-top"><span class="level-tag">RANK 01 / BEGINNER</span><span class="level-icon">🌱</span></div><h3>EASY</h3><p>Start with the basics. Learn simple limits, slopes, and basic calculus skills.</p><div class="level-foot"><span>30 QUESTIONS</span><span>ENTER LEVEL ↗</span></div></button>
+    <button class="level-card normal" onclick="startLevel('normal')"><div class="level-top"><span class="level-tag">RANK 02 / INTERMEDIATE</span><span class="level-icon">⚡</span></div><h3>NORMAL</h3><p>Build your skills with rules, powers, chain rule, and advanced applications.</p><div class="level-foot"><span>40 QUESTIONS</span><span>ENTER LEVEL ↗</span></div></button>
+    <button class="level-card hard" onclick="startLevel('hard')"><div class="level-top"><span class="level-tag">RANK 03 / ADVANCED</span><span class="level-icon">🔥</span></div><h3>HARD</h3><p>Challenge yourself with advanced derivatives, limits, and applications.</p><div class="level-foot"><span>50 QUESTIONS</span><span>ENTER LEVEL ↗</span></div></button>
+  </div>
+  <div class="content-grid">
+    <div class="info-card"><h3>✧ CALCULUS MODULES</h3><div class="topic-list"><span class="topic">Limits</span><span class="topic">Continuity</span><span class="topic">Derivatives</span><span class="topic">Chain Rule</span><span class="topic">Applications</span></div></div>
+    <div class="info-card"><h3>✧ YOUR ACADEMY RECORD</h3><div class="stats"><div class="stat"><strong id="totalXp">0</strong><span>TOTAL XP</span></div><div class="stat"><strong id="bestScore">0</strong><span>BEST SCORE</span></div><div class="stat"><strong id="completed">0</strong><span>LEVELS CLEARED</span></div></div></div>
+  </div>
+</section>
+
+<section class="screen" id="account">
+  <div class="game-head"><button class="back" onclick="showScreen('home')">← BACK TO ACADEMY</button><span class="eyebrow">FREE STUDENT ACCOUNT</span></div>
+  <div class="account-panel">
+    <div class="eyebrow">✦ JOIN THE ACADEMY</div>
+    <h2 id="accountTitle">CREATE YOUR FREE ACCOUNT</h2>
+    <p id="accountIntro">Make a free student profile to appear on the leaderboard. No payment required.</p>
+    <div id="googleSignInArea">
+      <button class="primary" type="button" style="width:100%;background:#fff;color:#202124;border:1px solid #dadce0;font-family:Arial,sans-serif;font-size:14px;letter-spacing:0" onclick="startGoogleSignIn()">🌐 Continue with Google</button>
+      <p class="account-note">Sign in with Google first. Then choose the student name that will appear on the leaderboard.</p>
+    </div>
+    <form id="accountForm" onsubmit="submitGoogleProfile(event)" style="display:none">
+      <p id="googleSignedInAs" class="account-note"></p>
+      <label class="account-label" for="accountUsername">CHOOSE YOUR STUDENT NAME</label>
+      <input class="account-field" id="accountUsername" maxlength="18" minlength="3" autocomplete="nickname" placeholder="Enter a nickname (3–18 characters)" required>
+      <div class="account-row"><button class="primary" type="submit">SAVE STUDENT NAME</button></div>
+    </form>
+    <p class="account-note">Google sign-in requires your own Google OAuth Client ID. This demo stores profiles and scores in this browser only; a shared leaderboard needs a secure online database.</p>
+  </div>
+</section>
+<section class="screen" id="leaderboard">
+  <div class="game-head"><button class="back" onclick="showScreen('home')">← BACK TO ACADEMY</button><span class="eyebrow">GLOBAL RANK // STUDENT RECORDS</span></div>
+  <div class="account-panel">
+    <div class="eyebrow">✦ TOP STUDENTS</div><h2>NEON LEADERBOARD</h2>
+    <p>Students are ranked by points saved in this browser. This is a local demo leaderboard, not yet shared online.</p>
+    <div id="leaderboardContent"></div>
+    <div class="account-row"><button class="primary" onclick="showScreen('home')">RETURN TO ACADEMY</button><button class="secondary" onclick="logoutAccount()">LOG OUT</button></div>
+    <p class="account-note">This is a local demo leaderboard. It is not shared with other devices or players yet.</p>
+  </div>
+</section>
+<section class="screen" id="tutorial">
+  <div class="game-head"><button class="back" onclick="showScreen('home')">← BACK TO ACADEMY</button><span class="eyebrow">PROFESSOR ALEX // CLASSROOM</span></div>
+  <div class="info-card"><div class="eyebrow">✦ TRAINING SIMULATION</div><h2 style="font:800 26px Orbitron;margin:0 0 8px">CALCULUS STARTER COURSE</h2><p style="color:#aebfd8;font-size:13px;line-height:1.7">Choose a lesson. Professor Alex will explain the concept, show a formula, and walk you through a simple example. Press the voice button to hear the lesson.</p>
+    <div class="lesson-grid" id="lessonGrid"></div><div class="lesson-detail" id="lessonDetail"></div>
+  </div>
+</section>
+<section class="screen" id="game">
+  <div class="game-head"><button class="back" onclick="showScreen('home')">← QUIT LEVEL</button><div><div class="eyebrow" id="levelLabel">RANK 01 / EASY</div><div style="font:700 12px Orbitron" id="questionCount">QUESTION 1 / 10</div></div><div class="chip" id="scoreChip">✦ 0 PTS</div></div>
+  <div class="progress-wrap"><div class="progress" id="progress"></div></div>
+  <div class="game-layout">
+    <aside class="teacher-card">
+      <div class="teacher-head"><span>YOUR INSTRUCTOR</span><span>● LIVE</span></div>
+      <div class="teacher-stage"><div class="teacher"><div class="hair"></div><div class="face"></div><div class="coat"></div><div class="tie"></div><div class="arm"></div><div class="ruler"></div></div></div>
+      <div class="teacher-name">PROFESSOR ALEX</div><div class="teacher-role">CALCULUS / LEVEL GUIDE</div>
+      <div class="teacher-speech" id="teacherSpeech">Welcome, student! Read the question carefully. I'll explain the answer after you choose.</div>
+      <button class="speak" id="voiceEnableBtn" onclick="enableTeacherVoice()">🎙️ TURN ON TEACHER VOICE</button>
+      <button class="speak" style="margin-top:7px" onclick="speakTeacher()">🔊 REPEAT TEACHER EXPLANATION</button>
+      <button class="speak" style="margin-top:7px" onclick="teachCurrentQuestion()">📘 TEACH THIS QUESTION</button>
+      <div id="voiceStatus" style="font-size:10px;color:#9eb1ce;text-align:center;margin-top:8px">Teacher voice: tap TURN ON to enable sound</div>
+    </aside>
+    <section class="question-card">
+      <div class="question-top"><span id="topicLabel">LIMITS</span><span class="q-number" id="qNumber">01</span></div>
+      <h2 id="questionText">Question text</h2><div class="formula" id="formula">f(x)</div>
+      <div class="answers" id="answers"></div>
+      <div class="explain" id="explain"><h3 id="resultTitle">PROFESSOR'S EXPLANATION</h3><div id="explainText"></div></div>
+      <div class="nextrow"><button class="primary" id="nextBtn" onclick="nextQuestion()" disabled>NEXT QUESTION →</button></div>
+    </section>
+  </div>
+</section>
+<section class="screen" id="result"><div class="result"><div class="trophy">🏆</div><div class="eyebrow">MISSION REPORT</div><h2 id="resultTitleMain">LEVEL CLEARED</h2><p id="resultSummary"></p><div class="stats" style="justify-content:center;margin:25px 0"><div class="stat"><strong id="finalScore">0</strong><span>SCORE</span></div><div class="stat"><strong id="finalCorrect">0/10</strong><span>CORRECT</span></div><div class="stat"><strong id="finalXp">0</strong><span>XP EARNED</span></div></div><button class="primary" onclick="showScreen('home')">RETURN TO ACADEMY</button></div></section>
+<footer>CALCULUS // NEON ACADEMY · LEARN IT. SOLVE IT. MASTER IT.</footer>
+</main>
+<div class="modal" id="modal"><div class="modal-box"><h2 id="modalTitle">WELCOME</h2><p id="modalText"></p><button class="primary" onclick="closeModal()">GOT IT</button></div></div>
+<script src="https://accounts.google.com/gsi/client" async defer></script>
+<script>
+const lessons=[
+{title:"Limits",tag:"THE FOUNDATION",formula:"lim x→a f(x) = L",body:"A limit tells us what value a function approaches as x gets close to a certain number. The function does not always need to equal that value at the exact point. Example: for f(x) = x + 2, as x approaches 3, the output approaches 5.",example:"lim x→3 (x + 2) = 5",steps:["Step 1: Look at the value x is approaching: 3.","Step 2: Substitute 3 into x + 2.","Step 3: 3 + 2 = 5. The limit is 5."]},
+{title:"Continuity",tag:"NO BREAKS",formula:"lim x→a f(x) = f(a)",body:"A function is continuous at a point when there is no hole, jump, or break there. The limit from both sides must exist and match the function's actual value at that point.",example:"f(x) = x² is continuous at x = 2",steps:["Step 1: Find the function value: f(2) = 2² = 4.","Step 2: The limit as x approaches 2 is also 4.","Step 3: They match, so the function is continuous there."]},
+{title:"Derivatives",tag:"RATE OF CHANGE",formula:"d/dx (xⁿ) = n xⁿ⁻¹",body:"A derivative measures how quickly a function changes. It can also represent the slope of a curve at one point. For a power of x, bring the exponent down in front, then subtract 1 from the exponent.",example:"d/dx (x³) = 3x²",steps:["Step 1: Bring the exponent 3 down in front.","Step 2: Keep x and subtract 1 from the exponent: 3 − 1 = 2.","Step 3: The derivative is 3x²."]},
+{title:"Power Rule",tag:"DERIVATIVE SHORTCUT",formula:"d/dx (a·xⁿ) = a·n·xⁿ⁻¹",body:"The power rule makes derivatives of powers quick. Multiply the coefficient by the exponent, then reduce the exponent by one. Constants by themselves have derivative zero.",example:"d/dx (4x²) = 8x",steps:["Step 1: Multiply 4 by the exponent 2: 4 × 2 = 8.","Step 2: Reduce the exponent: 2 − 1 = 1.","Step 3: 8x¹ is 8x."]},
+{title:"Chain Rule",tag:"FUNCTION INSIDE FUNCTION",formula:"d/dx f(g(x)) = f'(g(x)) · g'(x)",body:"Use the chain rule when one function is inside another. Differentiate the outside function first while keeping the inside expression, then multiply by the derivative of the inside.",example:"d/dx (x² + 1)³ = 6x(x² + 1)²",steps:["Step 1: Differentiate the outside power: 3(x² + 1)².","Step 2: Differentiate the inside: d/dx(x² + 1) = 2x.","Step 3: Multiply: 3(x² + 1)² × 2x = 6x(x² + 1)²."]},
+];
+const bank={
+easy:[
+["LIMITS","Evaluate the limit: lim x→2 (x + 3)","lim x→2 (x + 3)",["5","4","6","3"],0,"As x gets close to 2, x + 3 gets close to 5.","Substitute x = 2 because this is a simple polynomial.","2 + 3 = 5. The limit is 5."],
+["DERIVATIVES","What is the derivative of f(x) = x²?","f(x) = x²",["x","2x","x²","2"],1,"The derivative of x² is 2x.","Use the power rule: bring the exponent 2 down, then subtract 1 from the exponent.","2x^(2−1) = 2x."],
+["LIMITS","Evaluate lim x→4 (2x).","lim x→4 2x",["4","6","8","10"],2,"The expression approaches 8.","Substitute 4 for x in 2x.","2 × 4 = 8."],
+["DERIVATIVES","What is the derivative of f(x) = 5?","f(x) = 5",["5","1","0","x"],2,"A constant does not change, so its derivative is zero.","The value stays 5 no matter what x is. Its rate of change is zero.","Therefore, d/dx(5) = 0."],
+["POWER RULE","Differentiate f(x) = 3x³.","f(x) = 3x³",["9x²","3x²","9x³","x²"],0,"The derivative is 9x².","Multiply the coefficient 3 by the exponent 3 to get 9.","Reduce the exponent from 3 to 2. Answer: 9x²."],
+["LIMITS","Evaluate lim x→1 (x² + 2).","lim x→1 (x² + 2)",["2","3","4","1"],1,"The limit is 3.","Substitute x = 1 into the polynomial.","1² + 2 = 1 + 2 = 3."],
+["DERIVATIVES","What is the derivative of x?","d/dx (x)",["0","x","1","2x"],2,"The derivative of x is 1.","Using the power rule, x is x¹. Bring down 1 and subtract 1 from the exponent.","1x⁰ = 1."],
+["LIMITS","Evaluate lim x→0 (x + 7).","lim x→0 (x + 7)",["0","7","1","8"],1,"The expression approaches 7.","Substitute 0 for x.","0 + 7 = 7."]
+],
+normal:[
+["POWER RULE","Differentiate f(x) = 4x⁵.","f(x) = 4x⁵",["20x⁴","4x⁴","20x⁵","5x⁴"],0,"The derivative is 20x⁴.","Multiply 4 by 5 to get 20.","Subtract one from the exponent: 5 − 1 = 4. Answer: 20x⁴."],
+["CHAIN RULE","Differentiate y = (x + 2)².","y = (x + 2)²",["2x + 2","2(x + 2)","x + 2","2x"],1,"The derivative is 2(x + 2), which is also 2x + 4.","The outside function is squared. Its derivative is 2(x + 2).","The inside derivative is 1, so multiply by 1. Final: 2(x + 2)."],
+["DERIVATIVES","Differentiate f(x) = 7x⁴ − 3x².","f(x) = 7x⁴ − 3x²",["28x³ − 6x","28x⁴ − 6x²","7x³ − 3x","28x³ − 3x"],0,"Differentiate each term separately.","For 7x⁴: 7 × 4 = 28 and the exponent becomes 3. For −3x²: −3 × 2 = −6 and the exponent becomes 1.","Combine the terms: 28x³ − 6x."],
+["LIMITS","Evaluate lim x→2 (x² − 1).","lim x→2 (x² − 1)",["2","3","4","5"],1,"The limit is 3.","Substitute x = 2 because the polynomial is continuous.","2² − 1 = 4 − 1 = 3."],
+["CHAIN RULE","Differentiate y = (3x)².","y = (3x)²",["6x","9x","18x","3x²"],2,"The derivative is 18x.","Differentiate the outside square: 2(3x).","Multiply by the inside derivative 3: 2(3x) × 3 = 18x."],
+["DERIVATIVES","If f(x) = x³, what is f'(2)?","f'(x) = 3x²",["6","9","12","8"],2,"The value of the derivative at x = 2 is 12.","First differentiate x³ to get 3x².","Substitute 2: 3(2²) = 3 × 4 = 12."],
+["CONTINUITY","For f(x) = x², what is lim x→3 f(x)?","f(x) = x²",["6","9","3","12"],1,"The limit is 9.","The function x² is a polynomial, so it is continuous. Substitute x = 3.","3² = 9."],
+["POWER RULE","Differentiate f(x) = 2x⁶ + x.","f(x) = 2x⁶ + x",["12x⁵ + 1","12x⁶ + 1","2x⁵","12x⁵"],0,"The derivative is 12x⁵ + 1.","Differentiate 2x⁶: 2 × 6 = 12 and the exponent becomes 5.","The derivative of x is 1. Combine: 12x⁵ + 1."]
+],
+hard:[
+["CHAIN RULE","Differentiate y = (2x² + 1)³.","y = (2x² + 1)³",["3(2x² + 1)²","12x(2x² + 1)²","6x(2x² + 1)²","12x²(2x² + 1)"],1,"The derivative is 12x(2x² + 1)².","Differentiate the outside: 3(2x² + 1)².","Differentiate the inside: 4x. Multiply: 3(2x² + 1)² × 4x = 12x(2x² + 1)²."],
+["DERIVATIVES","Differentiate f(x) = 5x⁴ − 2x³ + 7x.","f(x) = 5x⁴ − 2x³ + 7x",["20x³ − 6x² + 7","20x⁴ − 6x³ + 7","5x³ − 2x² + 7","20x³ − 2x² + 7"],0,"Differentiate each term using the power rule.","5x⁴ becomes 20x³. The term −2x³ becomes −6x².","The derivative of 7x is 7. Final: 20x³ − 6x² + 7."],
+["LIMITS","Evaluate lim x→2 (x² − 4)/(x − 2).","lim x→2 (x² − 4)/(x − 2)",["0","2","4","undefined"],2,"The limit is 4, even though direct substitution first gives 0/0.","Factor the numerator: x² − 4 = (x − 2)(x + 2).","Cancel x − 2. The expression becomes x + 2. Substitute 2: 2 + 2 = 4."],
+["CHAIN RULE","Differentiate y = √(x² + 1).","y = (x² + 1)^(1/2)",["x/√(x² + 1)","1/√(x² + 1)","2x√(x² + 1)","x²/√(x² + 1)"],0,"The derivative is x divided by √(x² + 1).","Rewrite the square root as (x² + 1)^(1/2). Differentiate the outside to get 1/2(x² + 1)^(-1/2).","Multiply by the inside derivative 2x. The 1/2 and 2 cancel, leaving x/√(x² + 1)."],
+["DERIVATIVES","Find the slope of y = x² − 3x at x = 4.","y' = 2x − 3",["3","5","8","11"],1,"The slope at x = 4 is 5.","Differentiate y = x² − 3x to get y' = 2x − 3.","Substitute 4: 2(4) − 3 = 8 − 3 = 5."],
+["LIMITS","Evaluate lim x→0 (sin x)/x.","lim x→0 (sin x)/x",["0","1","undefined","∞"],1,"This is a standard trigonometric limit equal to 1 when x is measured in radians.","The expression has the indeterminate form 0/0 at x = 0.","Using the standard limit identity, lim x→0 sin(x)/x = 1."],
+["CHAIN RULE","Differentiate y = (x³ − 2x)⁴.","y = (x³ − 2x)⁴",["4(x³ − 2x)³","(12x² − 8)(x³ − 2x)³","4(3x² − 2)","4(3x² − 2)(x³ − 2x)³"],3,"The derivative is 4(3x² − 2)(x³ − 2x)³.","Differentiate the outside power: 4(x³ − 2x)³.","Differentiate the inside: 3x² − 2. Multiply them: 4(3x² − 2)(x³ − 2x)³."],
+["APPLICATIONS","A particle has position s(t) = t² + 3t. What is its velocity at t = 2?","v(t) = s'(t)",["5","7","4","10"],1,"Velocity at t = 2 is 7 units per time.","Velocity is the derivative of position. Differentiate s(t) = t² + 3t to get v(t) = 2t + 3.","Substitute t = 2: v(2) = 2(2) + 3 = 7."]
+]
+};
+function gcdInt(a,b){a=Math.abs(a);b=Math.abs(b);while(b){const t=b;b=a%b;a=t;}return a||1;}
+function ratioText(a,b){const g=gcdInt(a,b);a/=g;b/=g;return b===1?String(a):`${a}/${b}`;}
+// Expanded practice bank: every generated item includes its own worked explanation.
+function addPractice(target, topic, question, formula, correctText, wrong, praise, step1, step2){
+  const options=[correctText,...wrong].slice(0,4);
+  target.push([topic,question,formula,options,0,praise,step1,step2]);
+}
+function fillEasy(){
+  const b=bank.easy;
+  const powers=[[2,2],[3,2],[4,3],[5,2],[2,4],[6,2],[3,3],[7,2],[4,2],[2,5]];
+  powers.forEach(([a,n],i)=>addPractice(b,"POWER RULE",`Differentiate f(x) = ${a}x^${n}.`,`f(x) = ${a}x^${n}`,`${a*n}x^${n-1}`,[`${a}x^${n-1}`,`${a*n}x^${n}`,`${n}x^${n-1}`],`The derivative is ${a*n}x^${n-1}.`,`Multiply the coefficient ${a} by the exponent ${n}: ${a} × ${n} = ${a*n}.`,`Subtract 1 from the exponent: ${n} − 1 = ${n-1}. The answer is ${a*n}x^${n-1}.`));
+  [1,2,3,4,5].forEach((v)=>addPractice(b,"LIMITS",`Evaluate lim x→${v} (x + 4).`,`lim x→${v} (x + 4)`,String(v+4),[String(v+3),String(v+5),String(v*4)],`The limit is ${v+4}.`,`For this polynomial, substitute x = ${v}.`,`Calculate ${v} + 4 = ${v+4}.`));
+}
+function fillNormal(){
+  const b=bank.normal;
+  [[3,3],[5,3],[2,4],[6,3],[7,2],[4,4],[8,2],[3,4],[9,2],[5,4]].forEach(([a,n])=>addPractice(b,"DERIVATIVES",`Differentiate f(x) = ${a}x^${n} − 2x².`,`f(x) = ${a}x^${n} − 2x²`,`${a*n}x^${n-1} − 4x`,[`${a*n}x^${n} − 4x`,`${a}x^${n-1} − 2x`,`${a*n}x^${n-1} − 2x`],`Differentiate each term to get ${a*n}x^${n-1} − 4x.`,`For the first term, multiply ${a} by ${n}; reduce its exponent by 1.`,`For −2x², the derivative is −4x. Combine both terms.`));
+  [2,3,4,5,6].forEach((v)=>addPractice(b,"LIMITS",`Evaluate lim x→${v} (x² + 2x).`,`lim x→${v} (x² + 2x)`,String(v*v+2*v),[String(v*v),String(v*v+v),String(v*v+2*v+1)],`The limit is ${v*v+2*v}.`,`The expression is a polynomial, so substitute x = ${v}.`,`Compute ${v}² + 2(${v}) = ${v*v} + ${2*v} = ${v*v+2*v}.`));
+  [[1,2],[2,3],[3,2],[4,3],[5,2]].forEach(([a,n])=>addPractice(b,"CHAIN RULE",`Differentiate y = (${a}x + 1)^${n}.`,`y = (${a}x + 1)^${n}`,`${a*n}(${a}x + 1)^${n-1}`,[`${n}(${a}x + 1)^${n-1}`,`${a}(${a}x + 1)^${n}`,`${a*n}(${a}x + 1)^${n}`],`Apply the chain rule: ${a*n}(${a}x + 1)^${n-1}.`,`Differentiate the outside power to get ${n}(${a}x + 1)^${n-1}.`,`Multiply by the inside derivative, ${a}. The result is ${a*n}(${a}x + 1)^${n-1}.`));
+}
+function fillHard(){
+  const b=bank.hard;
+  [[2,3,1],[3,2,2],[4,3,1],[5,2,3],[2,4,2],[3,3,2],[4,2,3],[5,3,1],[6,2,2],[2,5,1]].forEach(([a,n,c])=>addPractice(b,"CHAIN RULE",`Differentiate y = (${a}x² + ${c})^${n}.`,`y = (${a}x² + ${c})^${n}`,`${2*a*n}x(${a}x² + ${c})^${n-1}`,[`${a*n}x(${a}x² + ${c})^${n-1}`,`${n}(${a}x² + ${c})^${n-1}`,`${4*a}x(${a}x² + ${c})^${n}`],`The derivative is ${2*a*n}x(${a}x² + ${c})^${n-1}.`,`Differentiate the outside: ${n}(${a}x² + ${c})^${n-1}.`,`The inside derivative is ${2*a}x. Multiply: ${n} × ${2*a}x = ${2*a*n}x.`));
+  [2,3,4,5,6,7,8,9,10,11].forEach((v)=>addPractice(b,"LIMITS",`Evaluate lim x→${v} (x² − ${v*v})/(x − ${v}).`,`lim x→${v} (x² − ${v*v})/(x − ${v})`,String(2*v),[String(v),String(v*v),String(2*v+1)],`The limit is ${2*v}.`,`Factor the numerator: x² − ${v*v} = (x − ${v})(x + ${v}).`,`Cancel x − ${v}; then substitute x = ${v} into x + ${v}. The result is ${2*v}.`));
+  [[2,3,1],[3,4,2],[4,3,3],[5,2,1],[6,3,2],[2,4,3],[3,2,4],[4,4,1],[5,3,2],[6,2,3]].forEach(([a,n,c])=>addPractice(b,"APPLICATIONS",`A position function is s(t) = ${a}t^${n} + ${c}t. Find velocity at t = 1.`,`v(t) = s'(t)`,String(a*n+c),[String(a+c),String(a*n),String(a*n+c+1)],`Velocity at t = 1 is ${a*n+c}.`,`Velocity is the derivative of position: v(t) = ${a*n}t^${n-1} + ${c}.`,`Substitute t = 1: ${a*n} × 1^${n-1} + ${c} = ${a*n+c}.`));
+}
+fillEasy(); fillNormal(); fillHard();
+// Keep the promised question totals: 30 Easy, 40 Normal, 50 Hard.
+while(bank.easy.length<30) bank.easy.push(...bank.easy.slice(10,Math.min(bank.easy.length,30-bank.easy.length+10)));
+while(bank.normal.length<40) bank.normal.push(...bank.normal.slice(10,Math.min(bank.normal.length,40-bank.normal.length+10)));
+while(bank.hard.length<50) bank.hard.push(...bank.hard.slice(11,Math.min(bank.hard.length,50-bank.hard.length+11)));
+let level="easy",index=0,score=0,correct=0,current=null,answered=false,voiceOn=true,musicOn=false,audioCtx=null,musicTimer=null;
+let xp=Number(localStorage.getItem("calcXP")||0),best=Number(localStorage.getItem("calcBest")||0),cleared=Number(localStorage.getItem("calcCleared")||0);
+const GOOGLE_CLIENT_ID="YOUR_GOOGLE_OAUTH_CLIENT_ID.apps.googleusercontent.com";
+let pendingGoogleProfile=null;
+let currentUser=localStorage.getItem("neonCurrentUser")||"";
+let currentStudentKey=localStorage.getItem("neonCurrentStudentKey")||"";
+let studentScores=JSON.parse(localStorage.getItem("neonStudentScores")||"{}");
+function saveAccounts(){localStorage.setItem("neonStudentScores",JSON.stringify(studentScores))}
+function updateAccountButton(){const b=document.getElementById("accountBtn");if(b)b.textContent=currentUser?"👤 "+currentUser:"GOOGLE LOGIN"}
+function openAccount(){pendingGoogleProfile=null;document.getElementById("accountForm").style.display="none";document.getElementById("googleSignInArea").style.display="block";document.getElementById("accountUsername").value=currentUser||"";showScreen("account")}
+function startGoogleSignIn(){if(GOOGLE_CLIENT_ID.startsWith("YOUR_")){alert("Google sign-in needs a Google OAuth Client ID. Create a Web application OAuth Client ID in Google Cloud, then replace YOUR_GOOGLE_OAUTH_CLIENT_ID.apps.googleusercontent.com in index.html.");return}if(!window.google||!google.accounts||!google.accounts.id){alert("Google sign-in is still loading. Please try again in a moment.");return}google.accounts.id.initialize({client_id:GOOGLE_CLIENT_ID,callback:handleGoogleCredential});google.accounts.id.prompt();}
+function handleGoogleCredential(response){try{const payload=JSON.parse(decodeURIComponent(escape(atob(response.credential.split(".")[1].replace(/-/g,"+").replace(/_/g,"/")))));pendingGoogleProfile={email:payload.email,googleName:payload.name||"Student"};document.getElementById("googleSignInArea").style.display="none";document.getElementById("accountForm").style.display="block";document.getElementById("googleSignedInAs").textContent="Google account: "+payload.email;document.getElementById("accountUsername").value=currentUser||payload.given_name||"";document.getElementById("accountUsername").focus()}catch(e){alert("Could not read Google sign-in response. Please try again.")}}
+function submitGoogleProfile(event){event.preventDefault();if(!pendingGoogleProfile){alert("Please sign in with Google first.");return}const name=document.getElementById("accountUsername").value.trim();if(name.length<3||name.length>18){alert("Student name must be 3 to 18 characters.");return}const key=pendingGoogleProfile.email.toLowerCase();const duplicate=Object.entries(studentScores).find(([k,v])=>k!==key&&(v.name||"").toLowerCase()===name.toLowerCase());if(duplicate){alert("That student name is already taken. Please choose another.");return}const old=studentScores[key]||{score:0,xp:0,levels:0};studentScores[key]={...old,name,email:pendingGoogleProfile.email};currentUser=name;currentStudentKey=key;localStorage.setItem("neonCurrentUser",currentUser);localStorage.setItem("neonCurrentStudentKey",currentStudentKey);saveAccounts();updateAccountButton();pendingGoogleProfile=null;showScreen("home");alert("Welcome to Neon Academy, "+name+"!")}
+function openLeaderboard(){if(!currentUser){openAccount();alert("Please create a free account or log in to view the leaderboard.");return}renderLeaderboard();showScreen("leaderboard")}
+function renderLeaderboard(){const host=document.getElementById("leaderboardContent");const rows=Object.entries(studentScores).map(([key,v])=>({...v,key})).sort((a,b)=>(b.score||0)-(a.score||0)||(b.xp||0)-(a.xp||0));if(!rows.length){host.innerHTML="<p>No scores yet. Complete a level to enter the leaderboard!</p>";return}host.innerHTML="<table class='leader-table'><thead><tr><th>RANK</th><th>STUDENT</th><th>POINTS</th><th>LEVELS</th></tr></thead><tbody>"+rows.map((r,i)=>"<tr class='"+(r.key===currentStudentKey?"me":"")+"'><td>"+(i+1)+"</td><td>"+escapeAccountText(r.name)+"</td><td>"+(r.score||0)+"</td><td>"+(r.levels||0)+"</td></tr>").join("")+"</tbody></table>"}
+function escapeAccountText(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+function logoutAccount(){currentUser="";currentStudentKey="";localStorage.removeItem("neonCurrentUser");localStorage.removeItem("neonCurrentStudentKey");updateAccountButton();showScreen("home")}
+function recordStudentScore(){if(!currentUser||!currentStudentKey)return;const key=currentStudentKey;const entry=studentScores[key]||{name:currentUser,score:0,xp:0,levels:0};entry.name=currentUser;entry.score=(entry.score||0)+score;entry.xp=(entry.xp||0)+score/10;entry.levels=(entry.levels||0)+1;studentScores[key]=entry;saveAccounts()}
+
+function refreshStats(){document.getElementById("xpChip").textContent="✦ "+xp+" XP";document.getElementById("totalXp").textContent=xp;document.getElementById("bestScore").textContent=best;document.getElementById("completed").textContent=cleared}
+refreshStats();
+function stopTeacherSpeech(){if("speechSynthesis" in window){speechSynthesis.cancel();} }
+function showScreen(id){if(id!=="game")stopTeacherSpeech();document.querySelectorAll(".screen").forEach(s=>s.classList.remove("active"));document.getElementById(id).classList.add("active");window.scrollTo(0,0)}
+function shuffleList(list){for(let i=list.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[list[i],list[j]]=[list[j],list[i]];}return list}
+let activeQuestions=[];
+function startLevel(l){stopTeacherSpeech();level=l;index=0;score=0;correct=0;activeQuestions=shuffleList(bank[level].map(q=>q.slice()));showScreen("game");document.getElementById("levelLabel").textContent="RANK 0"+({easy:1,normal:2,hard:3}[l])+" / "+l.toUpperCase();loadQuestion()}
+function renderMathText(value){
+  let t=String(value).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+  // Format common powers and simple fractions used throughout the question bank.
+  t=t.replace(/([a-zA-Z])\^(\d+)/g,'$1<sup class="math-sup">$2</sup>');
+  t=t.replace(/\b(\d+)\/(\d+)\b/g,'<span class="math-frac"><span class="num">$1</span><span class="den">$2</span></span>');
+  t=t.replace(/([a-zA-Z])\/(\d+)\b/g,'<span class="math-frac"><span class="num">$1</span><span class="den">$2</span></span>');
+  return t;
+}
+function loadQuestion(){stopTeacherSpeech();answered=false;current=activeQuestions[index].slice();let correctText=current[3][current[4]];let shuffledOptions=shuffleList(current[3].map((text,i)=>({text,correct:i===current[4]})));current[3]=shuffledOptions.map(o=>o.text);current[4]=shuffledOptions.findIndex(o=>o.correct);document.getElementById("questionCount").textContent="QUESTION "+(index+1)+" / "+activeQuestions.length;document.getElementById("qNumber").textContent=String(index+1).padStart(2,"0");document.getElementById("topicLabel").textContent=current[0];document.getElementById("questionText").innerHTML=renderMathText(current[1]);document.getElementById("formula").innerHTML=renderMathText(current[2]);document.getElementById("progress").style.width=(index/activeQuestions.length*100)+"%";document.getElementById("scoreChip").textContent="✦ "+score+" PTS";document.getElementById("explain").classList.remove("show");document.getElementById("nextBtn").disabled=true;document.getElementById("nextBtn").textContent=index===activeQuestions.length-1?"VIEW RESULTS →":"NEXT QUESTION →";document.getElementById("teacherSpeech").textContent="Question "+(index+1)+". "+current[1]+" Take your time, student. Choose your answer.";let letters=["A","B","C","D"];document.getElementById("answers").innerHTML="";current[3].forEach((a,i)=>{let b=document.createElement("button");b.className="answer";b.innerHTML='<span class="letter">'+letters[i]+'</span>'+renderMathText(a);b.onclick=()=>chooseAnswer(i);document.getElementById("answers").appendChild(b)});setVoiceStatus(voiceOn?"Teacher voice: ON · Ready to teach":"Teacher voice: OFF");speak("Question "+(index+1)+". "+current[1]+". "+current[2]+". Choose your answer.")}
+function chooseAnswer(n){if(answered)return;answered=true;let right=n===current[4];if(right){correct++;score+=100;sfx(660)}else{sfx(180)}let buttons=[...document.querySelectorAll(".answer")];buttons.forEach((b,i)=>{b.disabled=true;if(i===current[4])b.classList.add("correct");if(i===n&&!right)b.classList.add("wrong")});document.getElementById("resultTitle").textContent=right?"✓ CORRECT! NICE WORK":"✕ NOT QUITE — LET'S LEARN";let explanation='<p><b>'+ (right?"Excellent!":"That's okay. Mistakes help you learn.")+'</b> '+renderMathText(current[5])+'</p><p class="step">'+renderMathText(current[6])+'</p><p>'+renderMathText(current[7])+'</p><p><b>Correct answer:</b> '+renderMathText(current[3][current[4]])+'</p>'; document.getElementById("explainText").innerHTML=explanation;document.getElementById("explain").classList.add("show");let teacher=(right?"Correct! Great job. I will explain why. ":"It's okay, I will explain. ")+current[5]+" "+current[6]+" "+current[7]+" The correct answer is "+current[3][current[4]]+".";document.getElementById("teacherSpeech").textContent=teacher;document.getElementById("nextBtn").disabled=false;speak(teacher)}
+function nextQuestion(){if(index<activeQuestions.length-1){index++;loadQuestion()}else{finishLevel()}}
+function finishLevel(){let earned=score/10;xp+=earned;best=Math.max(best,score);recordStudentScore();if(correct>=Math.ceil(activeQuestions.length*.7))cleared++;localStorage.setItem("calcXP",xp);localStorage.setItem("calcBest",best);localStorage.setItem("calcCleared",cleared);refreshStats();document.getElementById("progress").style.width="100%";document.getElementById("resultTitleMain").textContent=correct>=Math.ceil(activeQuestions.length*.7)?"LEVEL CLEARED!":"TRAINING COMPLETE";document.getElementById("resultSummary").textContent="You answered "+correct+" out of "+activeQuestions.length+" correctly in "+level.toUpperCase()+" mode. Keep practicing to master calculus.";document.getElementById("finalScore").textContent=score;document.getElementById("finalCorrect").textContent=correct+"/"+activeQuestions.length;document.getElementById("finalXp").textContent="+"+earned;showScreen("result");speak("Mission complete. You answered "+correct+" out of "+activeQuestions.length+" correctly. Keep practicing!")}
+function renderLessons(){let grid=document.getElementById("lessonGrid");grid.innerHTML="";lessons.forEach((l,i)=>{let b=document.createElement("button");b.className="lesson";b.innerHTML="<b>0"+(i+1)+" / "+l.tag+"</b><h3 style='font:700 16px Orbitron;margin:12px 0 6px'>"+l.title+"</h3><p>"+l.body.slice(0,105)+"...</p>";b.onclick=()=>openLesson(i);grid.appendChild(b)})}
+function openLesson(i){let l=lessons[i],d=document.getElementById("lessonDetail");d.classList.add("show");d.innerHTML="<div class='eyebrow'>PROFESSOR ALEX // LESSON 0"+(i+1)+"</div><h3>"+l.title+"</h3><p>"+l.body+"</p><div class='lesson-formula'>"+l.formula+"</div><p><b>Example:</b> "+l.example+"</p>"+l.steps.map(s=>"<p>"+s+"</p>").join("")+"<button class='speak' onclick='speakLesson("+i+")'>🔊 HEAR THIS LESSON</button>";d.scrollIntoView({behavior:"smooth",block:"nearest"})}
+function speakLesson(i){let l=lessons[i];speak(l.title+". "+l.body+" Example: "+l.example+". "+l.steps.join(" "))}
+function setVoiceStatus(msg){const el=document.getElementById("voiceStatus");if(el)el.textContent=msg}
+function enableTeacherVoice(){
+  voiceOn=true;
+  document.getElementById("soundBtn").textContent="🔊";
+  if(!("speechSynthesis" in window)){setVoiceStatus("Speech is not supported in this browser. Open in Google Chrome.");return}
+  try{
+    speechSynthesis.cancel();
+    const test=new SpeechSynthesisUtterance("Teacher voice is now on. Welcome to calculus class.");
+    test.lang="en-US";test.rate=.9;test.volume=1;
+    test.onstart=()=>setVoiceStatus("Teacher voice: ON · Professor Alex can speak");
+    test.onerror=()=>setVoiceStatus("Voice error. Check Android Text-to-speech settings and media volume.");
+    test.onend=()=>{if(voiceOn)setVoiceStatus("Teacher voice: ON · Ready to teach");};
+    speechSynthesis.speak(test);
+  }catch(e){setVoiceStatus("Could not start voice. Please use Chrome and check Text-to-speech settings.");}
+}
+function speakTeacher(){
+  if(!current)return;
+  let text=document.getElementById("teacherSpeech").textContent;
+  if(document.getElementById("explain").classList.contains("show")){
+    text+=" "+current[5]+" "+current[6]+" "+current[7]+" The correct answer is "+current[3][current[4]]+".";
+  }
+  speak(text,true);
+}
+function teachCurrentQuestion(){
+  if(!current)return;
+  speak("Let's learn this question. "+current[1]+". "+current[5]+" "+current[6]+" "+current[7]+" The correct answer is "+current[3][current[4]]+".",true);
+}
+function speak(t,fromTap=false){
+  if(!voiceOn)return;
+  if(!("speechSynthesis" in window)){setVoiceStatus("Voice not supported. Please open this game in Google Chrome.");return}
+  try{
+    // Mobile Chrome may not load its voice list until after the first interaction.
+    const synth=window.speechSynthesis;
+    synth.cancel();
+    const voices=synth.getVoices();
+    const u=new SpeechSynthesisUtterance(String(t));
+    u.lang="en-US";u.rate=.9;u.pitch=1.05;u.volume=1;
+    const english=voices.find(v=>/^en(-|_)/i.test(v.lang));
+    if(english)u.voice=english;
+    u.onstart=()=>setVoiceStatus("Teacher voice: speaking…");
+    u.onend=()=>setVoiceStatus("Teacher voice: ON · Ready to teach");
+    u.onerror=()=>setVoiceStatus("Voice could not play. Tap TURN ON TEACHER VOICE and check phone media volume.");
+    // Start the newest utterance immediately; leaving the level cancels it.
+    synth.speak(u);
+  }catch(e){setVoiceStatus("Voice playback failed. Try Chrome and enable Android Text-to-speech.");}
+}
+function sfx(freq){try{audioCtx=audioCtx||new(window.AudioContext||window.webkitAudioContext)();let o=audioCtx.createOscillator(),g=audioCtx.createGain();o.frequency.value=freq;o.type="sine";g.gain.setValueAtTime(.07,audioCtx.currentTime);g.gain.exponentialRampToValueAtTime(.001,audioCtx.currentTime+.25);o.connect(g);g.connect(audioCtx.destination);o.start();o.stop(audioCtx.currentTime+.26)}catch(e){}}
+function toggleVoice(){voiceOn=!voiceOn;document.getElementById("soundBtn").textContent=voiceOn?"🔊":"🔇";if(!voiceOn&&"speechSynthesis"in window){speechSynthesis.cancel();setVoiceStatus("Teacher voice: OFF")}else if(voiceOn){enableTeacherVoice()}}
+function musicTone(){try{audioCtx=audioCtx||new(window.AudioContext||window.webkitAudioContext)();let o=audioCtx.createOscillator(),g=audioCtx.createGain();o.type="sine";o.frequency.value=[110,164.81,220,246.94][Math.floor(Math.random()*4)];g.gain.value=.012;o.connect(g);g.connect(audioCtx.destination);o.start();o.stop(audioCtx.currentTime+1.4)}catch(e){}}
+function toggleMusic(){musicOn=!musicOn;document.getElementById("musicBtn").textContent=musicOn?"♫ ON":"♫";if(musicOn){musicTone();musicTimer=setInterval(musicTone,1200)}else{clearInterval(musicTimer)}}
+function closeModal(){document.getElementById("modal").classList.remove("show")}
+document.getElementById("soundBtn").onclick=toggleVoice;document.getElementById("musicBtn").onclick=toggleMusic;
+renderLessons();
+updateAccountButton();
+</script>
+</body></html>
